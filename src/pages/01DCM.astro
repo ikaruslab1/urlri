@@ -1,0 +1,257 @@
+---
+import UrlChecker from "../components/UrlChecker.astro";
+
+const page = "Derecho Constitucional Mexicano";
+
+const urlsData = [
+    {
+        name: "Tema 2.1 El hecho y el acto jurídico",
+        url: "https://www.youtube.com/watch?v=p7awVRZ6Be4",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.1 El hecho y el acto jurídico",
+        url: "https://www.youtube.com/watch?v=F8r5Qulnl3Y",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.1 El hecho y el acto jurídico",
+        url: "https://www.youtube.com/watch?v=ht-NR0zUb08",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.2 La norma en sentido amplio y en sentido estricto",
+        url: "https://www.youtube.com/watch?v=NVbLquA2gEI",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.2 La norma en sentido amplio y en sentido estricto",
+        url: "https://www.youtube.com/watch?v=9McsXB67pMo",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.2 La norma en sentido amplio y en sentido estricto",
+        url: "https://www.youtube.com/watch?v=dZWXrnbBveE",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.3 Análisis de la estructura de la norma jurídica",
+        url: "https://www.youtube.com/watch?v=uDkc3Pvkj30",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+        Nota: "Video caido",
+    },
+    {
+        name: "Tema 2.3 Análisis de la estructura de la norma jurídica",
+        url: "https://www.youtube.com/watch?v=aX3zqnIOCpU&ab_channel=Jur%C3%ADdicaMente",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.3 Análisis de la estructura de la norma jurídica",
+        url: "https://www.youtube.com/watch?v=Fnam0QxlxwY",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.4 Características de las normas jurídicas (bilateralidad, exterioridad, heteronomía, coercibilidad)",
+        url: "https://www.youtube.com/watch?v=UTlJ7nnIrkQ",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.4 Características de las normas jurídicas (bilateralidad, exterioridad, heteronomía, coercibilidad)",
+        url: "https://www.youtube.com/watch?v=IDV1a2f-IrQ&ab_channel=JuanCarlosHern%C3%A1ndez",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.4 Características de las normas jurídicas (bilateralidad, exterioridad, heteronomía, coercibilidad)",
+        url: "https://www.youtube.com/watch?v=_iGvzFsycfo&ab_channel=Juridify",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.5 Elementos formales de las normas jurídicas (vigencia, validez, eficacia y jerarquía).",
+        url: "https://www.youtube.com/watch?v=O0WZN5xdHWY",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.5 Elementos formales de las normas jurídicas (vigencia, validez, eficacia y jerarquía).",
+        url: "https://www.youtube.com/watch?v=YU25uxdqISg&ab_channel=Jur%C3%ADdicaMente",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.5 Elementos formales de las normas jurídicas (vigencia, validez, eficacia y jerarquía).",
+        url: "https://www.youtube.com/watch?v=-IKjHVodSTQ",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.6 Los distintos órdenes normativos",
+        url: "https://www.youtube.com/watch?v=h7FD6axnZ-k&ab_channel=Prof.CarolinaPacheco",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 2.6 Los distintos órdenes normativos",
+        url: "https://www.youtube.com/watch?v=8EKsAUy7EQ0",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=4#tabs-tree-start",
+    },
+    {
+        name: "Tema 3.1 Fuentes reales",
+        url: "https://www.youtube.com/watch?v=PA2Yclcs6jw&ab_channel=Juridify",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=5",
+    },
+    {
+        name: "Tema 3.1 Fuentes reales",
+        url: "https://www.youtube.com/watch?v=Xf_Ksa1x-K4&ab_channel=Rel%C3%A1mpagoDelSaber",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=5",
+    },
+    {
+        name: "Tema 3.2 Fuentes históricas",
+        url: "https://www.youtube.com/watch?v=by1EXsKPT-k&ab_channel=OliviaLeyvaMu%C3%B1oz",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=5",
+    },
+    {
+        name: "Tema 3.4 Elementos constitutivos",
+        url: "https://www.youtube.com/watch?v=3TAGDjufyuI&ab_channel=CorrienteCivilista",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=5",
+    },
+    {
+        name: "Tema 4.1 Conceptos jurídicos fundamentales",
+        url: "https://www.youtube.com/watch?v=Zwu_1dagv_4",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.1 Conceptos jurídicos fundamentales",
+        url: "https://www.youtube.com/watch?v=xeBk2o9lKQw&ab_channel=GilbertoManjarrezOchoa",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.2 De la interpretación",
+        url: "https://www.youtube.com/watch?v=VHVniXltkr8&ab_channel=SERGIOBAZANORTEGA",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.2 De la interpretación",
+        url: "https://www.youtube.com/watch?v=ojaFIQtfWRQ&ab_channel=Algom%C3%A1syconversacionesJur%C3%ADdicas",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.1 Clasificación de las normas jurídicas",
+        url: "https://www.youtube.com/watch?v=DEOXlFmFmNo",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.1 Clasificación de las normas jurídicas",
+        url: "https://www.youtube.com/watch?v=91oGUktKypU&ab_channel=JuanCarlosHern%C3%A1ndez",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.2 Clasificación del Derecho",
+        url: "https://www.youtube.com/watch?v=JUJtjtzqQP4",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.2 Clasificación del Derecho",
+        url: "https://www.youtube.com/watch?v=oN2qCyTwE-w",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.1 Definición y objeto del Derecho Constitucional Mexicano",
+        url: "https://www.youtube.com/watch?v=1XNshrFrvfw",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=8#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.2 Historia y Desarrollo del Derecho Constitucional Mexicano",
+        url: "https://www.youtube.com/watch?v=gbsnWIyZV-M&ab_channel=Canal22",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=8#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.3 Constitución de 1917",
+        url: "https://www.youtube.com/watch?v=HGmwmpJKbtM%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20target=",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=8#tabs-tree-start",
+        Nota: "Falta _blank, pero si funciona",
+    },
+    {
+        name: "El artículo 124 constitucional",
+        url: "https://www.youtube.com/watch?v=3nEiKOr4PYc&ab_channel=EugeniaLe%C3%B3nOficial",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=9#tabs-tree-start",
+    },
+    {
+        name: "Tema 7.2 Facultades implícitas y explícitas",
+        url: "https://www.youtube.com/watch?v=bRLyhkkyOEg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=9#tabs-tree-start",
+    },
+    {
+        name: "Tema 7.3 Facultades concurrentes y coincidentes",
+        url: "https://www.youtube.com/watch?v=p9z4fE3G5GA",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=9#tabs-tree-start",
+    },
+    {
+        name: "Tema 7.4 Los estados de la federación",
+        url: "https://www.youtube.com/watch?v=V8vNMXjh4ys",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=9#tabs-tree-start",
+    },
+    {
+        name: "Tema 7.5 Constituciones estatales",
+        url: "https://www.youtube.com/watch?v=cFK7vKDEtjQ",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=9#tabs-tree-start",
+    },
+    {
+        name: "Tema 7.6 Intervención federal en la vida política de los estados",
+        url: "https://www.youtube.com/watch?v=R3TkmApFW1Q",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=9#tabs-tree-start",
+    },
+    {
+        name: "Tema 7.7 Obligaciones y prohibiciones a los Estados",
+        url: "https://www.youtube.com/watch?v=eGJ3aXM9dvE",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=9#tabs-tree-start",
+    },
+    {
+        name: "Tema 8.1 El presidente de la República",
+        url: "https://www.youtube.com/watch?v=oN_rg0Gc3LQ",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=10#tabs-tree-start",
+    },
+    {
+        name: "Tema 8.2 Facultades en política exterior",
+        url: "https://www.youtube.com/watch?v=Bt0KdSPGdGI",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=10#tabs-tree-start",
+    },
+    {
+        name: "Tema 8.3 Facultades en materia de comercio exterior",
+        url: "https://www.youtube.com/watch?v=hJOIu5mbero",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=10#tabs-tree-start",
+    },
+    {
+        name: "Tema 9.1 El Congreso de la Unión",
+        url: "https://www.youtube.com/watch?v=6Os7BjlWHy0",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=11#tabs-tree-start",
+    },
+    {
+        name: "Tema 9.2 Facultades del Congreso de la Unión en materia de política exterior",
+        url: "https://www.youtube.com/watch?v=N1XtQg4uysY",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=11#tabs-tree-start",
+    },
+    {
+        name: "ema 10.1 Iniciativa de reformas constitucionales",
+        url: "https://www.youtube.com/watch?v=xZPdFTM9PXk",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=12#tabs-tree-start",
+    },
+    {
+        name: "Tema 10.2 Proyectos de reformas",
+        url: "https://www.youtube.com/watch?v=j1hRQICCUbw",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=12#tabs-tree-start",
+    },
+    {
+        name: "Tema 10.3 La reforma educativa",
+        url: "https://www.youtube.com/watch?v=57bygWR3910",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=12#tabs-tree-start",
+    },
+    {
+        name: "Tema 10.4 La reforma energética",
+        url: "https://www.youtube.com/watch?v=VYQ-0m0u4SE",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=12#tabs-tree-start",
+    },
+    {
+        name: "Tema 10.5 La reforma de telecomunicaciones",
+        url: "https://www.youtube.com/watch?v=FNpCvhB1kO4",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=6&section=12#tabs-tree-start",
+    },
+];
+---
+
+<UrlChecker urlsData={urlsData} page={page} />

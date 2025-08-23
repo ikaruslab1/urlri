@@ -6,6 +6,7 @@ export interface Props {
         name: string;
         url: string;
         ir: string;
+        Nota?: string;
     }[];
     page: string;
 }
@@ -73,16 +74,22 @@ const urlResults = await checkUrls();
                     <li class="p-4 border border-gray-200 rounded-md flex justify-between items-center">
                         <div class="flex-1">
                             <strong class="block">{item.name}</strong>
-                            <>
-                                <a
-                                    href={item.url}
-                                    target="_blank"
-                                    class="text-gray-400"
-                                >
-                                    {item.url}
-                                </a>
-                                <br />
-                            </>
+                            <a
+                                href={item.url}
+                                target="_blank"
+                                class="text-gray-400"
+                            >
+                                {item.url}
+                            </a>
+                            <br />
+                            {/* Contenedor con estilos para la Nota */}
+                            {item.Nota && (
+                                <div class="bg-gray-100 p-2 rounded-md mt-2">
+                                    <p class="text-sm font-medium text-gray-700">
+                                        <b>Nota:</b> {item.Nota}
+                                    </p>
+                                </div>
+                            )}
                             <a
                                 href={item.ir}
                                 class="ml-2 font-bold text-blue-600"

@@ -1,0 +1,220 @@
+---
+import UrlChecker from "../components/UrlChecker.astro";
+
+const page = "verver";
+
+const urlsData = [
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://www.youtube.com/watch?v=nbX44zfmcOE",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://biblio.flacsoandes.edu.ec/libros/digital/47949.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://dialnet.unirioja.es/servlet/articulo?codigo=839169",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://repository.icesi.edu.co/server/api/core/bitstreams/5f9b8cec-cc8f-7785-e053-2cc003c84dc5/content",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://publicaciones.unaula.edu.co/index.php/ratiojuris/article/view/377",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://biblioteca.clacso.edu.ar/clacso/se/20190808043214/Regional-global.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://dialnet.unirioja.es/revista/2177/A/2000",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://dialnet.unirioja.es/ejemplar/56076",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://www.redalyc.org/pdf/177/17721562002.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://www.archivosdeciencias.fahce.unlp.edu.ar/article/view/Archivose050/10526",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://scielo.conicyt.cl/pdf/universum/v30n1/art_12.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://dle.rae.es/regi%C3%B3n",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://www.redalyc.org/articulo.oa?id=11115672002",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://revistas.unal.edu.co/index.php/bitacora/issue/view/1771",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://www.geoguessr.com/es/quiz/seterra",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "Referencias Unidad - 1",
+        url: "https://www.youtube.com/watch?v=lA4-It885c0&ab_channel=UNEDDocumentos",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=20&section=2",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+    {
+        name: "",
+        url: "",
+        ir: "",
+    },
+];
+---
+
+<UrlChecker urlsData={urlsData} page={page} />

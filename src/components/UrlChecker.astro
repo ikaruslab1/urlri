@@ -1,0 +1,109 @@
+---
+import "../styles/global.css";
+
+export interface Props {
+    urlsData: {
+        name: string;
+        url: string;
+        ir: string;
+    }[];
+    page: string;
+}
+
+const { urlsData, page } = Astro.props;
+
+async function checkUrls() {
+    const results = [];
+    for (const item of urlsData) {
+        try {
+            const response = await fetch(item.url, { method: "HEAD" });
+            results.push({
+                ...item,
+                status: response.status,
+                isError: response.status >= 400,
+                statusText: response.statusText,
+            });
+        } catch (error) {
+            results.push({
+                ...item,
+                status: 0,
+                isError: true,
+                statusText: "Connection Error",
+            });
+        }
+    }
+    return results;
+}
+
+const urlResults = await checkUrls();
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{page}</title>
+    </head>
+    <body class="font-sans max-w-3xl mx-auto p-5">
+        <div class="bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4"
+                >
+                    {page}
+                </h1>
+            </div>
+        </div>
+        <div class="flex justify-center mt-8">
+            <a
+                href="/"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+                Volver al Inicio
+            </a>
+        </div>
+
+        <br />
+
+        <ul class="space-y-3">
+            {
+                urlResults.map((item) => (
+                    <li class="p-4 border border-gray-200 rounded-md flex justify-between items-center">
+                        <div class="flex-1">
+                            <strong class="block">{item.name}</strong>
+                            <>
+                                <a
+                                    href={item.url}
+                                    target="_blank"
+                                    class="text-gray-400"
+                                >
+                                    {item.url}
+                                </a>
+                                <br />
+                            </>
+                            <a
+                                href={item.ir}
+                                class="ml-2 font-bold text-blue-600"
+                            >
+                                Ver ruta →
+                            </a>
+                        </div>
+                        <div
+                            class={`font-bold py-1 px-3 rounded ${
+                                item.isError
+                                    ? "text-red-600 bg-red-50"
+                                    : "text-green-600 bg-green-50"
+                            }`}
+                        >
+                            {item.isError
+                                ? `Caído: ${item.status} ${item.statusText}`
+                                : `Activo: ${item.status} ${item.statusText}`}
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </body>
+</html>

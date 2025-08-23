@@ -1,16 +1,88 @@
 ---
+import "../styles/global.css";
 
+// Array con las tarjetas
+const cards = [
+    {
+        title: "Introducción a los estudios regionales",
+        description: "Verificador de URLs para los recursos de 01IER.",
+        link: "01IER",
+        active: true,
+    },
+    {
+        title: "Desarrollo de Competencias Matemáticas",
+        description: "Verificador de URLs para los recursos de DCM.",
+        link: "urls/01DCM",
+        active: true,
+    },
+    {
+        title: "Próximamente",
+        description: "Más recursos académicos estarán disponibles pronto.",
+        link: "#",
+        active: false,
+    },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>SUAYED - Índice de Recursos</title>
+    </head>
+
+    <body class="bg-gray-100 min-h-screen">
+        <nav class="bg-amber-400 p-4 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="text-xl font-bold">SUAYED RRII</div>
+            </div>
+        </nav>
+
+        <main class="container h-screen mx-auto py-8 px-4">
+            <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+                Recursos Académicos
+            </h1>
+
+            <!-- Generación dinámica de tarjetas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {
+                    cards.map((card) => (
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <div class="p-6">
+                                <h2 class="text-xl font-bold text-blue-700 mb-2">
+                                    {card.title}
+                                </h2>
+                                <p class="text-gray-600 mb-4">
+                                    {card.description}
+                                </p>
+                                <div class="flex justify-center">
+                                    <a
+                                        href={card.link}
+                                        class={`${
+                                            card.active
+                                                ? "bg-blue-600 hover:bg-blue-700"
+                                                : "bg-gray-400 hover:bg-gray-500 cursor-not-allowed"
+                                        } text-white font-bold py-2 px-6 rounded-full transition-colors duration-300`}
+                                    >
+                                        {card.active
+                                            ? "Ver recursos"
+                                            : "Próximamente"}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white py-6">
+            <div class="container mx-auto px-4 text-center">
+                <p>© 2023 SUAYED - Todos los derechos reservados</p>
+                <p class="mt-2 text-gray-400 text-sm">
+                    Verificador de recursos académicos
+                </p>
+            </div>
+        </footer>
+    </body>
 </html>

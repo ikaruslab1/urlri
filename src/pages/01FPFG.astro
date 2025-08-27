@@ -1,0 +1,210 @@
+---
+import UrlChecker from "../components/UrlChecker.astro";
+
+const page = "Derecho Constitucional Mexicano";
+
+const urlsData = [
+    {
+        name: "Tema 1.1 La Republica de Platón",
+        url: "https://pixabay.com/es/photos/libro-abierto-biblioteca-educaci%C3%B3n-1428428/",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=3#tabs-tree-start",
+    },
+    {
+        name: "Tema 1.1 La Republica de Platón",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad1/anexos/Rep_Platon.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=3#tabs-tree-start",
+    },
+    {
+        name: "Tema 1.1 La Republica de Platón",
+        url: "https://www.youtube.com/watch?v=NS8I5GjTVpA&ab_channel=AMAAudiolibros",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=3#tabs-tree-start",
+    },
+    {
+        name: "Tema 1.1 La Republica de Platón",
+        url: "https://www.youtube.com/watch?v=NS8I5GjTVpA&ab_channel=AMAAudiolibros",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=3#tabs-tree-start",
+    },
+    {
+        name: "Tema 1.2 La Ética y La Política de Aristóteles",
+        url: "https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2",
+    },
+    {
+        name: "Tema 1.2 La Ética y La Política de Aristóteles",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad1/anexos/Pol_Aristoteles.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2",
+    },
+    {
+        name: "Tema 1.3 Roma: el tratado de La República de Cicerón",
+        url: "https://commons.wikimedia.org/wiki/File:Marcus_Tullius_Cicero.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=3#module-207",
+    },
+    {
+        name: "Tema 1.3 Roma: el tratado de La República de Cicerón",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad1/anexos/Rep_Ciceron.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=3#module-207",
+    },
+    {
+        name: "Tema 2.1 San Agustín y la política subordinada a la religión",
+        url: "https://es.wikipedia.org/wiki/Guerra_justa",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=4",
+    },
+    {
+        name: "Tema 2.1 San Agustín y la política subordinada a la religión",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad2/anexos/Sn_Agustin_Polit_y_Rel.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=4",
+    },
+    {
+        name: "Tema 2.2 Santo Tomás de Aquino",
+        url: "https://commons.wikimedia.org/wiki/File:Saint_Thomas_Aquinas_(Crivelli,_15th-century).jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=4#module-232",
+    },
+    {
+        name: "Tema 2.2 Santo Tomás de Aquino",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad2/anexos/S_Tomas_De_Aquino.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=4#module-232",
+    },
+    {
+        name: "Tema 3.2 Edad media occidental y las funciones de la iglesia católica",
+        url: "https://commons.wikimedia.org/wiki/File:Castillo_de_Bellver.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=5#module-252",
+    },
+    {
+        name: "Tema 3.3 La reconstrucción en el sacro imperio romano germánico",
+        url: "https://commons.wikimedia.org/wiki/File:Reichskrone_HRR_Front.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=5#module-252",
+    },
+    {
+        name: "Tema 3.4 Imperio y papado, señoríos y repúblicas municipales",
+        url: "https://commons.wikimedia.org/wiki/File:Vatican_City_in_January_2017.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=5#module-252",
+    },
+    {
+        name: "Tema 3.6 Significado social e histórico del Estado",
+        url: "https://commons.wikimedia.org/wiki/File:Constitution_1795.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=5#module-252",
+    },
+    {
+        name: "Tema 3.8 La división funcional del poder unitario del Estado",
+        url: "https://commons.wikimedia.org/wiki/File:Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=5#module-252",
+    },
+    {
+        name: "Tema 3.8 La división funcional del poder unitario del Estado",
+        url: "https://www.youtube.com/watch?v=ghPt_qct-Ws&ab_channel=Canal22",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=5#module-252",
+    },
+    {
+        name: "Tema 3.8 La división funcional del poder unitario del Estado",
+        url: "https://www.youtube.com/watch?v=ghPt_qct-Ws&ab_channel=Canal22",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=5#module-252",
+    },
+    {
+        name: "Tema 4.1 Nicolás Maquiavelo",
+        url: "https://commons.wikimedia.org/wiki/File:Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.1 Nicolás Maquiavelo",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad4/anexos/Maquiavelo.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.2 La República de Jean Bodin",
+        url: "https://commons.wikimedia.org/wiki/File:Jean_Bodin.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.2 La República de Jean Bodin",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad4/anexos/Rep_Jean_Bodin.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.3 El Estado absoluto de Thomas Hobbes",
+        url: "https://commons.wikimedia.org/wiki/File:Thomas_Hobbes._Line_engraving_by_W._Humphrys,_1839._Wellcome_V0002801.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 4.3 El Estado absoluto de Thomas Hobbes",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad4/anexos/Thomas_Hobbes.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=6#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.1 John Locke: Ensayos sobre el gobierno civil",
+        url: "https://commons.wikimedia.org/wiki/File:John_Locke.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.1 John Locke: Ensayos sobre el gobierno civil",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad5/anexos/Locke_Gob_Civil.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.2 Montesquieu: El espíritu de las leyes",
+        url: "https://commons.wikimedia.org/wiki/File:Montesquieu_-_Versailles_MV_2976.png",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.2 Montesquieu: El espíritu de las leyes",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad5/anexos/Montesquieu_Esp_Leyes.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.3 Juan Jacobo Rousseau: El contrato social y Discurso sobre el origen de la desigualdad",
+        url: "https://commons.wikimedia.org/wiki/File:Jean-Jacques_Rousseau_(painted_portrait).jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.3 Juan Jacobo Rousseau: El contrato social y Discurso sobre el origen de la desigualdad",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad5/anexos/Rousseau_Contr_Soc.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.4 lexis de Tocqueville: La democracia de América",
+        url: "https://commons.wikimedia.org/wiki/File:Alexis_de_Tocqueville_(Th%C3%A9odore_Chass%C3%A9riau_-_Versailles).jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.4 Alexis de Tocqueville: La democracia de América",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad5/anexos/Tocqueville_Democr.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.5 Emmanuel Sièyes",
+        url: "https://commons.wikimedia.org/wiki/File:Emmanuel_Joseph_Siey%C3%A8s,_by_Jacques_Louis_David.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 5.5 Emmanuel Sièyes",
+        url: "https://ead.acatlan.unam.mx/ri/contenidotematico/1138/unidad5/anexos/Emmanuel_Sieyes.pdf",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=7#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.1 Gobierno: tipos y formas",
+        url: "https://commons.wikimedia.org/wiki/File:House_of_Lords_2011.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=8#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.2 La República y la democracia representativa moderna",
+        url: "https://es.wikipedia.org/wiki/Archivo:James_Madison.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=8#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.3 Los órdenes de gobierno en la federación",
+        url: "https://es.wikipedia.org/wiki/Archivo:Divisi%C3%B3n_pol%C3%ADtica_de_M%C3%A9xico.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=8#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.5 Gobiernos divididos y yuxtapuestos",
+        url: "https://commons.wikimedia.org/wiki/File:Statua_Iustitiae.jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=8#tabs-tree-start",
+    },
+    {
+        name: "Tema 6.6 Relaciones intergubernamentales",
+        url: "https://commons.wikimedia.org/wiki/File:Reuni%C3%B3n_de_Gabinete_del_Gobierno_CDMX_-i---i-_(36151158172).jpg",
+        ir: "https://ead.acatlan.unam.mx/ri/course/view.php?id=2&section=8#tabs-tree-start",
+    },
+];
+---
+
+<UrlChecker urlsData={urlsData} page={page} />
